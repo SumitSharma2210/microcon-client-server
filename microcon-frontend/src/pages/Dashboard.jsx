@@ -23,7 +23,10 @@ export default function Dashboard() {
       setLoading(true);
       async function fetchRegistrations() {
         try {
-          const res = await fetch("http://localhost:5000/api/test");
+          const res = await fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/api/test`
+          );
+
           const json = await res.json();
 
           if (!res.ok) throw new Error(json.error || "Failed to fetch");
